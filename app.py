@@ -38,25 +38,26 @@ if camera_file is not None:
   st.metric(label="Chlorophyll Density (% Green)", value=f"{green_percentage:.2f}%")
   st.metric(label="Vascular Hydration Index", value=f"{avg_saturation:.1f} / 255")
   st.metric(label="Surface Defect / Spot Index", value=f"{spots_count:.1f}%")
-
-  # Decision tree based on simple metrics
+  # Decision tree: Check for overall green/hydration drop FIRST, then spots
   if green_percentage > 55 and spots_count < 15:
     st.success(
         "🟢 **Diagnosis: HEALTHY** — Normal chlorophyll and vascular hydration"
         " detected."
-    )
-  elif spots_count > 25:
-    st.error(
-        "🟤 **Diagnosis: LEAF SPOT / FUNGAL INFECTION** — High concentration of"
-        " localized dark necrotic lesions detected."
     )
   elif green_percentage < 35 or avg_saturation < 80:
     st.warning(
         "🟡 **Diagnosis: DROUGHT / NUTRIENT STRESS** — Widespread chlorotic"
         " fading and internal moisture loss detected."
     )
+  elif spots_count > 25:
+    st.error(
+        "🟤 **Diagnosis: LEAF SPOT / FUNGAL INFECTION** — High concentration of"
+        " localized dark necrotic lesions detected."
+    )
   else:
     st.info(
         "🟠 **Diagnosis: EARLY-STAGE SUB-CLINICAL STRESS** — Minor degradation"
         " starting to manifest."
     )
+
+  
