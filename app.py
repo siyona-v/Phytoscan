@@ -43,21 +43,32 @@ if camera_file is not None:
     st.success(
         "🟢 **Diagnosis: HEALTHY** — Normal chlorophyll and vascular hydration"
         " detected."
+        """Maintenance: Maintain the current watering schedule and ensure adequate sunlight exposure aligned with the specific plant species' requirements."""
     )
   elif green_percentage < 35 or avg_saturation < 80:
     st.warning(
         "🟡 **Diagnosis: DROUGHT / NUTRIENT STRESS** — Widespread chlorotic"
         " fading and internal moisture loss detected."
+        """Immediate Action: Move the plant to a shaded, indirect-light area to reduce immediate transpirational water loss.
+        Watering Protocol: Apply deep watering via soil saturation (allow water to drain completely to avoid root rot). Avoid shallow, daily water splashes that only wet the topsoil.
+        Nutrient Support: If the chlorosis persists after rehydration, apply a balanced, water-soluble NPK (Nitrogen-Phosphorus-Potassium) fertilizer to replenish depleted macro-nutrients."""
     )
   elif spots_count > 25:
     st.error(
         "🟤 **Diagnosis: LEAF SPOT / FUNGAL INFECTION** — High concentration of"
         " localized dark necrotic lesions detected."
+        """Immediate Action: Isolate the affected plant immediately to prevent spores from spreading to neighboring vegetation.
+        Mechanical Removal: Carefully prune and dispose of severely infected leaves using sterilized shears (wipe blades with alcohol between cuts). Never leave infected leaves in the soil pot.
+        Treatment: Apply an organic fungicide or a natural copper/neem oil spray to the remaining foliage, focusing on the undersides of the leaves where spores typically incubate. Avoid overhead watering to keep leaf surfaces dry."""
     )
   else:
     st.info(
         "🟠 **Diagnosis: EARLY-STAGE SUB-CLINICAL STRESS** — Minor degradation"
         " starting to manifest."
+        """Environmental Audit: Check the surrounding microclimate—verify if the plant is receiving too much direct midday sunlight or experiencing root-bound stress in its current container.
+
+        Soil Check: Test soil compaction and moisture retention; aerate the topsoil gently to improve oxygen flow to the root zone."""
+      
     )
 
   
